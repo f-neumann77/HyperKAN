@@ -1,5 +1,10 @@
 # HyperKAN
-Replacement classic classifier MLP Block with KAN Block for Hyperspectral data
-
+Replacement classic layers with Kolmogorov-Arnold layers for Hyperspectral data classification
 
 We propose new approach fro increasing hyperspectral classifiers performance
+
+
+We used basic implementations of architectures from repositories:
+
+1) [DeepHyperX](https://github.com/nshaud/DeepHyperX)
+2) [HSI_SSFTT](https://github.com/zgr6010/HSI_SSFTT)
