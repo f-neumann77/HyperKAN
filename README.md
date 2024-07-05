@@ -4,6 +4,7 @@ Replacement classic layers with Kolmogorov-Arnold layers for Hyperspectral data 
 We propose new approach fro increasing hyperspectral classifiers performance
 
 
+# Acknowledgements
 We used basic implementations of architectures from repositories:
 
 1) [DeepHyperX](https://github.com/nshaud/DeepHyperX)
