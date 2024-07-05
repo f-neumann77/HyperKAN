@@ -8,7 +8,7 @@ import torch.nn.functional as F
 from typing import *
 
 from models.model import Model
-from models.kan_linear import KANLinear
+from models.kan_layers import KANLinear
 
 
 class KAN(torch.nn.Module):

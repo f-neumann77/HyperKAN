@@ -2,7 +2,7 @@ from typing import Any, Optional, Dict
 import numpy as np
 
 from models.model import Model
-from models.kan_linear import KAN
+from models.kan_layers import KAN
 
 import torch
 import torch.nn as nn

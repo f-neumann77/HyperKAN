@@ -3,12 +3,11 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import torch.nn.functional as F
 
 from typing import *
 
 from models.model import Model
-from models.kan_linear import KANLinear
+from models.kan_layers import KANLinear
 
 
 class KAN(torch.nn.Module):
@@ -108,8 +107,6 @@ class Hu1DCNN_KAN_Net(nn.Module):
         self.features_size = self._get_final_flattened_size()
         self.kan_fc = KAN([self.features_size, 512, 512, n_classes],
                            base_activation=torch.nn.ReLU)
-        self.fc1 = nn.Linear(self.features_size, 100)
-        self.fc2 = nn.Linear(100, n_classes)
     # ------------------------------------------------------------------------------------------------------------------
 
     def forward(self, x):

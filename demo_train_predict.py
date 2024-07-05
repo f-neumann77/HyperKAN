@@ -1,5 +1,7 @@
 #  Importing networks
-from models import MLP, MLP_KAN, Hu1DCNN, Hu1DCNN_KAN, M1DCNN, M1DCNN_KAN, Luo3DCNN, Luo3DCNN_KAN
+from models import MLP, MLP_KAN, Hu1DCNN, Hu1DCNN_KAN, \
+                   M1DCNN, M1DCNN_KAN, Luo3DCNN, Luo3DCNN_KAN, \
+                   He3DCNN, He3DCNN_KAN, NM3DCNN, NM3DCNN_KAN
 
 import numpy as np
 from scipy.io import loadmat
@@ -16,10 +18,10 @@ from models.utils import get_accuracy, get_f1
 from dataloaders.utils import apply_pca
 
 DATASET = H13
-NN_MODEL = Luo3DCNN_KAN
+NN_MODEL = NM3DCNN_KAN
 
 optimizer_params = {
-    "learning_rate": 0.1,
+    "learning_rate": 0.01,
     "weight_decay": 0
 }
 
