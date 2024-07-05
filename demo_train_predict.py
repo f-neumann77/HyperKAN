@@ -1,8 +1,9 @@
 #  Importing networks
 from models import MLP, MLP_KAN, Hu1DCNN, Hu1DCNN_KAN, \
                    M1DCNN, M1DCNN_KAN, Luo3DCNN, Luo3DCNN_KAN, \
-                   He3DCNN, He3DCNN_KAN, NM3DCNN, NM3DCNN_KAN
-
+                   He3DCNN, He3DCNN_KAN, NM3DCNN, NM3DCNN_KAN, \
+                   SSFTT, SSFTT_KAN
+import seaborn as sns
 import numpy as np
 from scipy.io import loadmat
 
@@ -11,22 +12,21 @@ from models.utils import draw_fit_plots
 from dataloaders.utils import HyperStandardScaler
 from datasets_config import PaviaU, PaviaC, Salinas, IP, H13, H18, KSC
 
-
 from models.utils import get_accuracy, get_f1
-
+from utils import draw_colored_mask
 # import pca wrapper for hsi
 from dataloaders.utils import apply_pca
 
-DATASET = H13
-NN_MODEL = NM3DCNN_KAN
+DATASET = H18
+NN_MODEL = SSFTT_KAN
 
 optimizer_params = {
-    "learning_rate": 0.01,
+    "learning_rate": 0.001,
     "weight_decay": 0
 }
 
 scheduler_params = {
-    "step_size": 50,
+    "step_size": 5,
     "gamma": 0.5
 }
 
@@ -37,7 +37,7 @@ augmentation_params = {
 }
 
 fit_params = {
-    "epochs": 50,
+    "epochs": 25,
     "train_sample_percentage": DATASET.get('train_sample_percentage'),
     "dataloader_mode": "fixed",
     "wandb_vis": False,
@@ -55,12 +55,14 @@ def predict_(X,
 
     pred = cnn.predict(X=X,
                        y=y,
-                       batch_size=100)
+                       batch_size=512)
 
-    pred = pred * (mask > 0)
-    mask_ = mask * (y_train == 0)
+    pred = pred * (y > 0)
+    mask_ = y * (y_train == 0)
     pred = pred * (y_train == 0)
-
+    draw_colored_mask(mask=y,
+                      predicted_mask=pred,
+                      stack_type='h')
     return get_accuracy(target=mask_, prediction=pred), get_f1(target=mask_, prediction=pred, average='weighted')
 
 
@@ -78,7 +80,7 @@ scaler = HyperStandardScaler()
 
 hsi = scaler.fit_transform(hsi)
 
-#hsi_pca, pca = apply_pca(hsi.data, 30)
+hsi, pca = apply_pca(hsi, 30)
 
 cnn = NN_MODEL(n_classes=n_classes,
                n_bands=hsi.shape[-1],
@@ -93,4 +95,5 @@ draw_fit_plots(model=cnn)
 acc_bl, f1_bl = predict_(hsi, mask, cnn=cnn, y_train=cnn.train_mask)
 
 print(acc_bl, f1_bl)
+
 
