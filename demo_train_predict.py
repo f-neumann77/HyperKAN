@@ -1,6 +1,5 @@
 #  Importing networks
-from models import MLP
-from models import MLP_KAN
+from models import MLP, MLP_KAN, Hu1DCNN, Hu1DCNN_KAN, M1DCNN, M1DCNN_KAN
 
 import numpy as np
 from scipy.io import loadmat
@@ -17,7 +16,7 @@ from models.utils import get_accuracy, get_f1
 from dataloaders.utils import apply_pca
 
 DATASET = PaviaU
-NN_MODEL = MLP_KAN
+NN_MODEL = M1DCNN_KAN
 
 optimizer_params = {
     "learning_rate": 0.1,
