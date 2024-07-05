@@ -27,16 +27,16 @@ IP = {
     'train_sample_percentage': 0.2
 }
 H13 = {
-    'path_to_hsi': './datasets/houston_fixed/houston13.mat',
+    'path_to_hsi': './datasets/houston/houston13.mat',
     'hsi_key': 'houston13',
-    'path_to_mask': './datasets/houston_fixed/houston13_7gt.mat',
+    'path_to_mask': './datasets/houston/houston13_7gt.mat',
     'mask_key': 'houston13_7gt',
     'train_sample_percentage': 0.1
 }
 H18 = {
-    'path_to_hsi': './datasets/houston_fixed/houston18.mat',
+    'path_to_hsi': './datasets/houston/houston18.mat',
     'hsi_key': 'houston18',
-    'path_to_mask': './datasets/houston_fixed/houston18_7gt.mat',
+    'path_to_mask': './datasets/houston/houston18_7gt.mat',
     'mask_key': 'houston18_7gt',
     'train_sample_percentage': 0.1
 }

@@ -1,5 +1,5 @@
 #  Importing networks
-from models import MLP, MLP_KAN, Hu1DCNN, Hu1DCNN_KAN, M1DCNN, M1DCNN_KAN
+from models import MLP, MLP_KAN, Hu1DCNN, Hu1DCNN_KAN, M1DCNN, M1DCNN_KAN, Luo3DCNN, Luo3DCNN_KAN
 
 import numpy as np
 from scipy.io import loadmat
@@ -15,8 +15,8 @@ from models.utils import get_accuracy, get_f1
 # import pca wrapper for hsi
 from dataloaders.utils import apply_pca
 
-DATASET = PaviaU
-NN_MODEL = M1DCNN_KAN
+DATASET = H13
+NN_MODEL = Luo3DCNN_KAN
 
 optimizer_params = {
     "learning_rate": 0.1,
