@@ -10,13 +10,6 @@ from models.model import Model
 
 
 class M1DCNN_Net(nn.Module):
-    """
-        Deep Convolutional Neural Networks for Hyperspectral Image Classification
-        Wei Hu, Yangyu Huang, Li Wei, Fan Zhang and Hengchao Li
-        Journal of Sensors, Volume 2015 (2015)
-        https://www.hindawi.com/journals/js/2015/258619/
-        """
-
     @staticmethod
     def weight_init(m):
         # [All the trainable parameters in our CNN should be initialized to

@@ -63,18 +63,9 @@ class KAN(torch.nn.Module):
 # ----------------------------------------------------------------------------------------------------------------------
 
 
-class M1DCNN_Net(nn.Module):
-    """
-        Deep Convolutional Neural Networks for Hyperspectral Image Classification
-        Wei Hu, Yangyu Huang, Li Wei, Fan Zhang and Hengchao Li
-        Journal of Sensors, Volume 2015 (2015)
-        https://www.hindawi.com/journals/js/2015/258619/
-        """
-
+class M1DCNN_KAN_Net(nn.Module):
     @staticmethod
     def weight_init(m):
-        # [All the trainable parameters in our CNN should be initialized to
-        # be a random value between −0.05 and 0.05.]
         if isinstance(m, nn.Linear) or isinstance(m, nn.Conv1d):
             nn.init.uniform_(m.weight, -0.05, 0.05)
             nn.init.zeros_(m.bias)
@@ -94,29 +85,21 @@ class M1DCNN_Net(nn.Module):
                  n_classes,
                  kernel_size=None,
                  pool_size=None):
-        super(M1DCNN_Net, self).__init__()
+        super(M1DCNN_KAN_Net, self).__init__()
         if kernel_size is None:
-            # [In our experiments, k1 is better to be [ceil](n1/9)]
             kernel_size = math.ceil(input_channels / 9)
         if pool_size is None:
-            # The authors recommend that k2's value is chosen so that the pooled features have 30~40 values
-            # ceil(kernel_size/5) gives the same values as in the paper so let's assume it's okay
             pool_size = math.ceil(kernel_size / 5)
         self.input_channels = input_channels
 
-        # [The first hidden convolution layer C1 filters the n1 x 1 input data with 20 kernels of size k1 x 1]
         self.conv_1 = nn.Conv1d(1, 20, kernel_size)
         self.conv_2 = nn.Conv1d(20, 20, kernel_size)
         self.bn_conv = nn.BatchNorm1d(20)
         self.pool = nn.MaxPool1d(pool_size)
         self.features_size = self._get_final_flattened_size()
-        # [n4 is set to be 100]
         self.kan_fc = KAN([self.features_size, 512, 512, n_classes],
                            base_activation=torch.nn.ReLU,
                               )
-        self.fc1 = nn.Linear(self.features_size, 100)
-        self.fc2 = nn.Linear(100, n_classes)
-        # self.apply(self.weight_init)
     # ------------------------------------------------------------------------------------------------------------------
 
     def forward(self, x):
@@ -128,11 +111,7 @@ class M1DCNN_Net(nn.Module):
         x = self.conv_2(x)
         x = torch.tanh(self.pool(x))
         x = x.view(-1, self.features_size)
-        # x = torch.tanh(self.kan_fc(x))
         x = self.kan_fc(x)
-        #x = self.fc1(x)
-        #x = torch.tanh(self.fc1(x))
-        #x = self.fc2(x)
         return x
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -158,7 +137,7 @@ class M1DCNN_KAN(Model):
         weights = weights.to(device)
         self.hyperparams["weights"] = weights
 
-        self.model = M1DCNN_Net(n_bands, n_classes)
+        self.model = M1DCNN_KAN_Net(n_bands, n_classes)
 
         if path_to_weights:
             self.model.load_state_dict(torch.load(path_to_weights))

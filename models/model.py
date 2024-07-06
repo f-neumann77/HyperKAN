@@ -14,7 +14,7 @@ from typing import Dict, Iterable, Literal
 
 from dataloaders.torch_dataloader import create_torch_loader
 from dataloaders.utils import get_dataset, grouper, count_sliding_window, sliding_window, sample_gt
-from models.utils import camel_to_snake, init_wandb, init_tensorboard, EarlyStopping
+from models.utils import camel_to_snake, EarlyStopping
 
 
 SchedulerTypes = Literal['StepLR', 'CosineAnnealingLR', 'ReduceLROnPlateau']
@@ -54,16 +54,6 @@ class Model(ABC):
                 X,
                 y) -> np.ndarray:
         raise NotImplemented("Method predict must be implemented!")
-    # ------------------------------------------------------------------------------------------------------------------
-
-    def init_wandb(self, path='../wandb.yaml'):
-        self.wandb_run = init_wandb(path=path)
-        if self.wandb_run:
-            self.wandb_run.watch(self.model)
-    # ------------------------------------------------------------------------------------------------------------------
-
-    def init_tensorboard(self, path='tensorboard'):
-        self.writer = init_tensorboard(path_dir=path)
     # ------------------------------------------------------------------------------------------------------------------
 
     @staticmethod
