@@ -49,8 +49,8 @@ class Hu1DCNN_Net(nn.Module):
         self.conv_1 = nn.Conv1d(1, 20, kernel_size)
         self.pool = nn.MaxPool1d(pool_size)
         self.features_size = self._get_final_flattened_size()
-        self.fc1 = nn.Linear(self.features_size, 100)
-        self.fc2 = nn.Linear(100, n_classes)
+        self.fc1 = nn.Linear(self.features_size, 512)
+        self.fc2 = nn.Linear(512, n_classes)
         self.apply(self.weight_init)
     # ------------------------------------------------------------------------------------------------------------------
 

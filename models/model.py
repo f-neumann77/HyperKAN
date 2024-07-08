@@ -1,3 +1,4 @@
+import copy
 import datetime
 import numpy as np
 import os
@@ -324,6 +325,8 @@ def train(net: nn.Module,
     val_loss = []
     lrs = []
     t = trange(1, epoch + 1, desc='Train loop', leave=True, dynamic_ncols=True)
+    best_weights = None
+    val_acc_best = 0
     for e in t:
         train_metrics = train_one_epoch(net=net,
                                         criterion=criterion,
@@ -353,6 +356,8 @@ def train(net: nn.Module,
             val_loss.append(val_metrics['avg_val_loss'])
             val_accuracies.append(val_metrics['val_acc'])
             metric = val_metrics['val_acc']
+            if val_metrics['val_acc'] > val_acc_best:
+                best_weights = copy.deepcopy(net)
         else:
             metric = train_metrics["avg_train_loss"]
 
@@ -408,7 +413,7 @@ def train(net: nn.Module,
 
     df = pd.DataFrame(history)
     df.to_csv('metrics.csv')
-    return net, history
+    return best_weights, history
 # ----------------------------------------------------------------------------------------------------------------------
 
 
