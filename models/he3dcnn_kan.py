@@ -143,12 +143,6 @@ class He3DCNN_KAN(Model):
         fit_params.setdefault('scheduler_type', None)
         fit_params.setdefault('scheduler_params', None)
 
-        fit_params.setdefault('wandb', self.wandb_run)
-        fit_params.setdefault('tensorboard', self.writer)
-
-        fit_params.setdefault('wandb_vis', False)
-        fit_params.setdefault('tensorboard_viz', False)
-
         self.model, history, self.train_mask = super().fit_nn(X=X,
                                              y=y,
                                              hyperparams=self.hyperparams,
@@ -173,4 +167,3 @@ class He3DCNN_KAN(Model):
                                         hyperparams=self.hyperparams)
 
         return prediction
-# ----------------------------------------------------------------------------------------------------------------------

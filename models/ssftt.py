@@ -4,7 +4,7 @@ import torch.optim as optim
 
 from einops import rearrange
 from torch import nn
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional
 
 from dataloaders.torch_dataloader import create_torch_loader
 from dataloaders.utils import get_dataset, sample_gt
@@ -257,8 +257,6 @@ class SSFTT(Model):
                                          weight_decay=fit_params['optimizer_params']['weight_decay']))
         fit_params.setdefault('scheduler_type', None)
         fit_params.setdefault('scheduler_params', None)
-        fit_params.setdefault('wandb', self.wandb_run)
-        fit_params.setdefault('tensorboard', self.writer)
 
         if fit_params['scheduler_type'] == 'StepLR':
             scheduler = optim.lr_scheduler.StepLR(optimizer=fit_params['optimizer'],
@@ -281,9 +279,7 @@ class SSFTT(Model):
                                     epoch=fit_params['epochs'],
                                     data_loader=train_loader,
                                     val_loader=val_loader,
-                                    device='cuda',
-                                    wandb_run=fit_params['wandb'],
-                                    writer=fit_params['tensorboard']
+                                    device='cuda'
                                     )
         save_train_mask(model_name=camel_to_snake(str(self.model.__class__.__name__)),
                         dataset_name=train_loader.dataset.name,
@@ -310,4 +306,3 @@ class SSFTT(Model):
                                         hyperparams=self.hyperparams)
 
         return prediction
-# ----------------------------------------------------------------------------------------------------------------------

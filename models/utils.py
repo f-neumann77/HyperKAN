@@ -1,14 +1,8 @@
-import numpy as np
-import os
 import re
-import wandb
-import yaml
+import numpy as np
 
-from collections import OrderedDict
 from matplotlib import pyplot as plt
 from sklearn.metrics import accuracy_score, f1_score
-from torch.utils.tensorboard import SummaryWriter
-from typing import List, Union
 
 
 def camel_to_snake(name):
@@ -150,6 +144,5 @@ def get_f1(prediction: np.ndarray,
 
 
 def get_confusion_matrix():
-    # TODO realise it
+    # TODO release it
     pass
-# ----------------------------------------------------------------------------------------------------------------------

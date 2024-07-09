@@ -1,20 +1,21 @@
-#  Importing networks
+import numpy as np
+from scipy.io import loadmat
+
+# Import neural networks models
 from models import MLP, MLP_KAN, Hu1DCNN, Hu1DCNN_KAN, \
                    M1DCNN, M1DCNN_KAN, Luo3DCNN, Luo3DCNN_KAN, \
                    He3DCNN, He3DCNN_KAN, NM3DCNN, NM3DCNN_KAN, \
                    SSFTT, SSFTT_KAN
-import seaborn as sns
-import numpy as np
-from scipy.io import loadmat
 
-# import support tools
+# Import helper tools
 from models.utils import draw_fit_plots
 from dataloaders.utils import HyperStandardScaler
 from datasets_config import PaviaU, PaviaC, Salinas, IP, H13, H18, KSC
 
 from models.utils import get_accuracy, get_f1
 from utils import draw_colored_mask
-# import pca wrapper for hsi
+
+# Import pca wrapper for hsi
 from dataloaders.utils import apply_pca
 
 DATASET = H18
@@ -77,7 +78,6 @@ mask = loadmat(mask_path)[mask_key]
 n_classes = len(np.unique(mask))
 
 scaler = HyperStandardScaler()
-
 hsi = scaler.fit_transform(hsi)
 
 hsi, pca = apply_pca(hsi, 30)
@@ -95,5 +95,3 @@ draw_fit_plots(model=cnn)
 acc_bl, f1_bl = predict_(hsi, mask, cnn=cnn, y_train=cnn.train_mask)
 
 print(acc_bl, f1_bl)
-
-

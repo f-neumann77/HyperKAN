@@ -337,8 +337,6 @@ class SSFTT_KAN(Model):
                                          weight_decay=fit_params['optimizer_params']['weight_decay']))
         fit_params.setdefault('scheduler_type', None)
         fit_params.setdefault('scheduler_params', None)
-        fit_params.setdefault('wandb', self.wandb_run)
-        fit_params.setdefault('tensorboard', self.writer)
 
         if fit_params['scheduler_type'] == 'StepLR':
             scheduler = optim.lr_scheduler.StepLR(optimizer=fit_params['optimizer'],
@@ -361,9 +359,7 @@ class SSFTT_KAN(Model):
                                     epoch=fit_params['epochs'],
                                     data_loader=train_loader,
                                     val_loader=val_loader,
-                                    device='cuda',
-                                    wandb_run=fit_params['wandb'],
-                                    writer=fit_params['tensorboard']
+                                    device='cuda'
                                     )
         save_train_mask(model_name=camel_to_snake(str(self.model.__class__.__name__)),
                         dataset_name=train_loader.dataset.name,
@@ -390,4 +386,3 @@ class SSFTT_KAN(Model):
                                         hyperparams=self.hyperparams)
 
         return prediction
-# ----------------------------------------------------------------------------------------------------------------------

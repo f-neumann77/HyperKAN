@@ -177,6 +177,7 @@ def is_coordinate_in_padded_area(coordinates: Tuple,
 # ----------------------------------------------------------------------------------------------------------------------
 
 
+# To-Do: Add references throughout all code
 def apply_pca(X: np.ndarray,
               num_components: int = 75,
               pca=None):
@@ -431,5 +432,3 @@ def sample_gt(gt: np.ndarray,
         raise ValueError(f"{mode} sampling is not implemented yet.")
 
     return train_gt, test_gt
-# ----------------------------------------------------------------------------------------------------------------------
-

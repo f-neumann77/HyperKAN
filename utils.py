@@ -47,7 +47,7 @@ def draw_colored_mask(mask: np.ndarray,
     tmp = lambda x: [i / 255 for i in x]
     cmap = {k: tmp(rgb) + [t] for k, rgb in palette.items()}
 
-    #patches = [mpatches.Patch(color=cmap[i], label=mask_labels.get(str(i), 'no information')) for i in cmap]
+    # patches = [mpatches.Patch(color=cmap[i], label=mask_labels.get(str(i), 'no information')) for i in cmap]
 
     plt.figure(figsize=(12, 12))
     if np.any(predicted_mask):
@@ -61,7 +61,7 @@ def draw_colored_mask(mask: np.ndarray,
         plt.imshow(combined, label='Colored ground truth and predicted masks')
     else:
         plt.imshow(color_gt, label='Colored ground truth mask')
-    #if labels:
+    # if labels:
     #    plt.legend(handles=patches, loc=4, borderaxespad=0.)
     plt.show()
 

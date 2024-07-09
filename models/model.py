@@ -85,9 +85,6 @@ class Model(ABC):
                                   optimizer=fit_params['optimizer'],
                                   scheduler_params=fit_params['scheduler_params'])
 
-        fit_params.setdefault('wandb', None)
-        fit_params.setdefault('tensorboard', None)
-
         train_gt, _ = sample_gt(gt=gt,
                                 train_size=fit_params['train_sample_percentage'],
                                 mode=fit_params['dataloader_mode'],
@@ -103,7 +100,6 @@ class Model(ABC):
         print(f'Val size: {np.sum(val_gt > 0)}')
 
         # Generate the dataset
-
         train_loader = create_torch_loader(img, train_gt, hyperparams, shuffle=True)
         val_loader = create_torch_loader(img, val_gt, hyperparams)
 
@@ -118,8 +114,6 @@ class Model(ABC):
                                data_loader=train_loader,
                                epoch=fit_params['epochs'],
                                val_loader=val_loader,
-                               wandb_run=fit_params['wandb'],
-                               writer=fit_params['tensorboard'],
                                device=hyperparams['device'])
 
         return model, history, train_gt
@@ -288,9 +282,7 @@ def train(net: nn.Module,
           data_loader: udata.DataLoader,
           epoch,
           device=None,
-          val_loader=None,
-          wandb_run=None,
-          writer=None
+          val_loader=None
           ):
     """
     Training loop to optimize a network for several epochs and a specified loss
@@ -365,23 +357,6 @@ def train(net: nn.Module,
         if scheduler is not None:
             scheduler.step()
 
-        # log metrics
-        if wandb_run:
-            wandb_run.log({"Loss/train": train_metrics["avg_train_loss"],
-                           "Loss/val": val_metrics['avg_val_loss'],
-                           "Accuracy/train": train_metrics["train_acc"],
-                           "Accuracy/val": val_metrics['val_acc'],
-                           "Learning rate": optimizer.param_groups[0]['lr']
-                            }
-                         )
-
-        if writer:
-            net.writer.add_scalar('Loss/train', train_metrics["avg_train_loss"], e)
-            net.writer.add_scalar('Loss/val', val_metrics['avg_val_loss'], e)
-            net.writer.add_scalar('Accuracy/train', train_metrics["train_acc"], e)
-            net.writer.add_scalar('Accuracy/val', val_metrics['val_acc'], e)
-            net.writer.add_scalar('Learning rate', optimizer.param_groups[0]['lr'], e)
-
         # Save the weights
         if e % save_epoch == 0:
             save_model(
@@ -398,12 +373,6 @@ def train(net: nn.Module,
             print("Early stopping")
             break
 
-    if wandb_run:
-        wandb_run.finish()
-
-    if writer:
-        writer.close()
-
     history = dict()
     history["train_loss"] = train_loss
     history["val_loss"] = val_loss
@@ -413,6 +382,7 @@ def train(net: nn.Module,
 
     df = pd.DataFrame(history)
     df.to_csv('metrics.csv')
+
     return best_weights, history
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -509,4 +479,3 @@ def save_model(model,
         torch.save(model.state_dict(), model_dir + filename + ".pth")
     else:
         print('Saving error')
-# ----------------------------------------------------------------------------------------------------------------------
