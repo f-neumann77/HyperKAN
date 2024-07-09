@@ -17,6 +17,7 @@ We used basic implementations of architectures from repositories:
 # Results
 
 ### Baseline 
+
 |Model|PaviaU*|PaviaC|Salinas|Indian Pines*|Houston13|Houston18|KSC|
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|
 |MLP|	92.54 |	97.95 |	91.23 |	80.66	| 95.06	| 86.62 |	81.84 |
@@ -33,24 +34,28 @@ M1DCNN + KAN-Head |	95.26	|98.99|	92.83|	85.56|	96.75|	93.86|	91.12|
 
 
 ### Spectral-spatial features (window size 3x3)
+
 |Model|PaviaU*|PaviaC|Salinas|Indian Pines*|Houston13|Houston18|KSC|
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|
 3DCNN Luo |	96.92 |	99.21 |	93.99	|81.90	|95.69	|92.45	|87.37|
 3DCNN Luo KAConv2D + KAN-Head| 	98.28	|99.41	|95.26	|89.08	|96.04	|93.99	|88.80|
 
 ### Spectral-spatial features (window size 7x7)
+
 |Model|PaviaU*|PaviaC|Salinas|Indian Pines*|Houston13|Houston18|KSC|
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|
 3DCNN He|	98.05 |	97.39	| 93.03 |	84.45	| 90.40 | 	91.98|	88.87|
 3DCNN He + KAN-Head|	98.54 |	99.34 |	96.70	|85.26	|92.93	|93.39	|89.65|
 
 ### Spectral-spatial features (window size 7x7)
+
 |Model|PaviaU*|PaviaC|Salinas|Indian Pines*|Houston13|Houston18|KSC|
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|
 NM3DCNN |	99.33	|99.57 |	96.78 |	90.20 |	94.41 |	95.53 |	86.61 |
 NM3DCNN + KAN-Head |	99.42 |	99.69 |	97.11 |	91.61 |96.92|	95.63 |	92.01|
 
 ### Spectral-spatial features (window size 13x13), 30 principal components
+
 |Model|PaviaU*|PaviaC|Salinas|Indian Pines*|Houston13|Houston18|KSC|
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|
 SSFTT |	99.86 |	99.88	| 99.85 |	98.78 |	98.57 |	96.22 |	95.45 |
