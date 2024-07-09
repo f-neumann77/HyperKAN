@@ -1,14 +1,11 @@
 import copy
-import re
 import itertools
 import numpy as np
 import sklearn.model_selection
-import torch
 
-from typing import Literal, Optional, Tuple, Union
+from typing import Literal, Optional, Tuple
 from sklearn.decomposition import PCA
 from sklearn.model_selection import train_test_split
-
 
 
 ScaleType = Literal['band', 'pixel']

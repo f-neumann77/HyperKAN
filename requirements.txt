@@ -8,3 +8,4 @@ matplotlib
 scikit-learn
 seaborn
 scipy
+wandb
