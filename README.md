@@ -1,14 +1,18 @@
 # HyperKAN
-Replacement classic layers with Kolmogorov-Arnold layers for Hyperspectral data classification
+The objective of this research is to replace classical neural network layers with Kolmogorov-Arnold layers for the 
+classification of hyperspectral data.
 
-We propose new approach fro increasing hyperspectral classifiers performance
-
+A novel approach to enhancing the efficacy of hyperspectral classifiers is proposed.
 # Demo
 
-For start train and test set model, dataset and params in _demo_train_predict.py_ and to execute `python3 demo_train_predict.py`
+To get started:
+1. install dependencies `pip3 install -r requirements.txt`
+2. create `datasets` folder with datasets files or set desired paths in `datasets_config.py`
+3. set up the training and test model and specify the dataset name in `demo_train_predict.py`
+4. run `python3 demo_train_predict.py`
 
 # Acknowledgements
-We used basic implementations of architectures from repositories:
+We have been using basic implementations of architectures from the following repositories:
 
 1) [DeepHyperX](https://github.com/nshaud/DeepHyperX)
 2) [HSI_SSFTT](https://github.com/zgr6010/HSI_SSFTT)
@@ -16,8 +20,8 @@ We used basic implementations of architectures from repositories:
 
 # Results
 
-*The training sample size for PaviaU and Indian Pines consisted of 20% samples per class, while for other datasets it was 10% per
-class.
+*The training sample size for PaviaU and Indian Pines consisted of 20% samples per class, while for the other datasets 
+it was 10% per class.
 
 ### Baseline 
 
@@ -71,6 +75,6 @@ SSFTT KAConv2D + KAN-Head | 	**99.92** |	**99.92** |	**99.93** |	**99.13** | **9
 
 # Preprint
 
-Results here and in prepring can be differents
+The results shown above may differ from the published preprint. The latter will be updated soon.
 
 https://arxiv.org/abs/2407.05278
