@@ -18,12 +18,9 @@ We used basic implementations of architectures from repositories:
 
 ### Baseline 
 
-|Model|PaviaU*|PaviaC|Salinas|Indian Pines*|Houston13|Houston18|KSC|
-
-|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-
+| Model | PaviaU* | PaviaC | Salinas | Indian Pines* | Houston13 | Houston18 | KSC |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |MLP|	92.54 |	97.95 |	91.23 |	80.66	| 95.06	| 86.62 |	81.84 |
-
 |KAN| 93.40 |	98.53	|92.28|	83.70	|95.40	|87.70	|88.65|
 
 ### Spectral-features
