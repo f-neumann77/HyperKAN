@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional
 
 from models.model import Model
 
