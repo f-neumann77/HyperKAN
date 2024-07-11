@@ -14,5 +14,6 @@ from models.he3dcnn_kan import He3DCNN_KAN
 from models.he3dcnn_full_kan import He3DCNN_KAN as He3DCNN_FULL_KAN
 from models.nm3dcnn import NM3DCNN
 from models.nm3dcnn_kan import NM3DCNN_KAN
+from models.nm3dcnn_full_kan import NM3DCNN_KAN as NM3DCNN_FULL_KAN
 from models.ssftt import SSFTT
 from models.ssftt_kan import SSFTT_KAN

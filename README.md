@@ -67,10 +67,11 @@ M1DCNN full KAN	  | **95.45** | 	**99.06**	 | **93.51** | 	**86.08**	   | **96.8
 3DCNN He full KAN | 	**98.76** | 	**99.71** | 	**98.14** | 	**96.47**    | 	**95.73** | 	**95.82** | 	**93.66** |
 
 ### Spectral-spatial features (window size 7x7)
-|Model | PaviaU* | PaviaC | Salinas | Indian Pines* | Houston13 | Houston18 | KSC |
-|------|---------|--------|---------|---------------|-----------|-----------|-----|
-NM3DCNN            |	99.33	|99.57 |	96.78 |	90.20 |	94.41 |	95.53 |	86.61 |
-NM3DCNN + KAN-Head |	**99.42** |	**99.69** |	**97.11** |	**91.61** | **96.92** |	**95.63** |	**92.01**|
+|Model | PaviaU*   | PaviaC     | Salinas    | Indian Pines* | Houston13   | Houston18  | KSC       |
+|------|-----------|------------|------------|---------------|-------------|------------|-----------|
+NM3DCNN            | 	99.33	   | 99.57      | 	96.78     | 	90.20        | 	94.41      | 	95.53     | 	86.61    |
+NM3DCNN + KAN-Head | 	99.42    | 	99.69     | 	97.11     | 	91.61        | 96.92       | 	95.63     | 	92.01    |
+NM3DCNN full KAN | **99.52** | 	**99.75** | 	**98.01** | 	**95.39**    | 	**97.53**	 | **95.84**	 | **94.40** |
 
 ### Spectral-spatial features (window size 13x13), 30 principal components
 [SSFTT by Sun et al](https://ieeexplore.ieee.org/document/9684381)
