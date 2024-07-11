@@ -5,6 +5,7 @@ from models.hu1dcnn_kan import Hu1DCNN_KAN
 from models.hu1dcnn_full_kan import Hu1DCNN_KAN as Hu1DCNN_FULL_KAN
 from models.m1dcnn import M1DCNN
 from models.m1dcnn_kan import M1DCNN_KAN
+from models.m1dcnn_full_kan import M1DCNN_KAN as M1DCNN_FULL_KAN
 from models.luo3dcnn import Luo3DCNN
 from models.luo3dcnn_kan import Luo3DCNN_KAN
 from models.he3dcnn import He3DCNN
