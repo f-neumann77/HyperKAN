@@ -60,10 +60,11 @@ M1DCNN full KAN	  | **95.45** | 	**99.06**	 | **93.51** | 	**86.08**	   | **96.8
 ### Spectral-spatial features (window size 7x7)
 [3DCNN by He et al](https://ieeexplore.ieee.org/document/8297014/)
 
-|Model | PaviaU* | PaviaC | Salinas | Indian Pines* | Houston13 | Houston18 | KSC |
-|------|---------|--------|---------|---------------|-----------|-----------|-----|
-3DCNN He           |	98.05 |	97.39	| 93.03 |	84.45	| 90.40 | 	91.98|	88.87|
-3DCNN He + KAN-Head|	**98.54** |	**99.34** |	**96.70**	| **85.26**	| **92.93**	| **93.39**	| **89.65** |
+|Model | PaviaU*    | PaviaC     | Salinas    | Indian Pines* | Houston13  | Houston18  | KSC        |
+|------|------------|------------|------------|---------------|------------|------------|------------|
+3DCNN He           | 	98.05     | 	97.39	    | 93.03      | 	84.45	       | 90.40      | 	91.98     | 	88.87     |
+3DCNN He + KAN-Head| 	98.54     | 	99.34     | 	96.70	    | 85.26	        | 92.93	     | 93.39	     | 89.65      |
+3DCNN He full KAN | 	**98.76** | 	**99.71** | 	**98.14** | 	**96.47**    | 	**95.73** | 	**95.82** | 	**93.66** |
 
 ### Spectral-spatial features (window size 7x7)
 |Model | PaviaU* | PaviaC | Salinas | Indian Pines* | Houston13 | Houston18 | KSC |

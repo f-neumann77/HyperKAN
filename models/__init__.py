@@ -11,6 +11,7 @@ from models.luo3dcnn_kan import Luo3DCNN_KAN
 from models.luo3dcnn_full_kan import Luo3DCNN_KAN as Luo3DCNN_FULL_KAN
 from models.he3dcnn import He3DCNN
 from models.he3dcnn_kan import He3DCNN_KAN
+from models.he3dcnn_full_kan import He3DCNN_KAN as He3DCNN_FULL_KAN
 from models.nm3dcnn import NM3DCNN
 from models.nm3dcnn_kan import NM3DCNN_KAN
 from models.ssftt import SSFTT
