@@ -35,6 +35,7 @@ it was 10% per class.
 
 ### Spectral-features
 [1DCNN by Hu et al](https://www.hindawi.com/journals/js/2015/258619/)
+
 |Model | PaviaU* | PaviaC | Salinas | Indian Pines* | Houston13 | Houston18 | KSC |
 |------|---------|--------|---------|---------------|-----------|-----------|-----|
 |1DCNN            |	94.21	|98.20	|91.93	|85.82	|92.63	|91.32	|84.87|
@@ -49,13 +50,16 @@ M1DCNN full KAN	  | **95.45** | 	**99.06**	 | **93.51** | 	**86.08**	   | **96.8
 
 ### Spectral-spatial features (window size 3x3)
 [3DCNN by Luo et al](https://ieeexplore.ieee.org/document/8455251)
+
 |Model | PaviaU* | PaviaC | Salinas | Indian Pines* | Houston13 | Houston18 | KSC |
 |------|---------|--------|---------|---------------|-----------|-----------|-----|
-3DCNN                    |	96.92 |	99.21 |	93.99	|81.90	|95.69	|92.45	|87.37|
-3DCNN KAConv2D + KAN-Head| 	**98.28**	| **99.41**	| **95.26**	| **89.08**	| **96.04**	| **93.99**	| **88.80** |
+3DCNN                     |	96.92       |	99.21   |	93.99 |81.90	  | 95.69    |92.45	   |87.37      |
+3DCNN KAConv2D + KAN-Head | 	98.28	| 99.41	    | 95.26	  | 89.08	  | 96.04    | 93.99   | 88.80     |
+3DCNN full KAN            | **99.02**	| **99.57** |**96.97**| **91.33** |**96.77** |**94.16**| **90.72** | 
 
 ### Spectral-spatial features (window size 7x7)
 [3DCNN by He et al](https://ieeexplore.ieee.org/document/8297014/)
+
 |Model | PaviaU* | PaviaC | Salinas | Indian Pines* | Houston13 | Houston18 | KSC |
 |------|---------|--------|---------|---------------|-----------|-----------|-----|
 3DCNN He           |	98.05 |	97.39	| 93.03 |	84.45	| 90.40 | 	91.98|	88.87|
@@ -69,6 +73,7 @@ NM3DCNN + KAN-Head |	**99.42** |	**99.69** |	**97.11** |	**91.61** | **96.92** |
 
 ### Spectral-spatial features (window size 13x13), 30 principal components
 [SSFTT by Sun et al](https://ieeexplore.ieee.org/document/9684381)
+
 |Model | PaviaU* | PaviaC | Salinas | Indian Pines* | Houston13 | Houston18 | KSC |
 |------|---------|--------|---------|---------------|-----------|-----------|-----|
 SSFTT                     |	99.86 |	99.88	| 99.85 |	98.78 |	98.57 |	96.22 |	95.45 |

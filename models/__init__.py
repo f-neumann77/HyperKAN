@@ -8,6 +8,7 @@ from models.m1dcnn_kan import M1DCNN_KAN
 from models.m1dcnn_full_kan import M1DCNN_KAN as M1DCNN_FULL_KAN
 from models.luo3dcnn import Luo3DCNN
 from models.luo3dcnn_kan import Luo3DCNN_KAN
+from models.luo3dcnn_full_kan import Luo3DCNN_KAN as Luo3DCNN_FULL_KAN
 from models.he3dcnn import He3DCNN
 from models.he3dcnn_kan import He3DCNN_KAN
 from models.nm3dcnn import NM3DCNN

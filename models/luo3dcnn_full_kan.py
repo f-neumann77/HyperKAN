@@ -1,7 +1,7 @@
 from typing import Any, Optional, Dict
 import numpy as np
 
-from models.kan_layers import FastKANConvLayer, KAN
+from models.kan_layers import KAN, FastKANConv2DLayer, FastKANConv3DLayer
 from models.model import Model
 
 import torch
@@ -33,25 +33,38 @@ class Luo3DCNN_KAN_Net(nn.Module):
         super(Luo3DCNN_KAN_Net, self).__init__()
         self.input_channels = input_channels
         self.patch_size = patch_size
-        self.n_planes = n_planes
-        self.conv1 = nn.Conv3d(1, 90, (24, 3, 3), padding=0, stride=(9, 1, 1))
+        self.n_planes = 64
+        #self.conv1 = nn.Conv3d(1, 90, (24, 3, 3), padding=0, stride=(9, 1, 1))
+
+        self.conv1 = nn.Sequential(
+                            FastKANConv3DLayer(input_dim=1,
+                                               output_dim=self.n_planes,
+                                               kernel_size=(24, 3, 3),
+                                               stride=(9, 1, 1),
+                                               padding=0,
+                                               grid_size=2,
+                                               base_activation=nn.PReLU),
+                            #nn.BatchNorm3d(90),
+                            #nn.ReLU(),
+        )
+
         self.conv2 = nn.Sequential(
-                            FastKANConvLayer(in_channels=1,
-                                             out_channels=64,
-                                             kernel_size=(3, 3),
-                                             stride=(1, 1),
-                                             kan_type="RBF"  # "Poly", "Chebyshev", "Fourier", "BSpline"
-                                            ),
-                            nn.BatchNorm2d(64),
-                            nn.ReLU(),
+                            FastKANConv2DLayer(input_dim=1,
+                                               output_dim=32,
+                                               kernel_size=(3, 3),
+                                               stride=(1, 1),
+                                               grid_size=2,
+                                               base_activation=nn.PReLU),
+                            #nn.BatchNorm2d(64),
+                            #nn.ReLU(),
                     )
 
         self.features_size = self._get_final_flattened_size()
-        self.fc_kan = KAN([self.features_size, 512, 512, n_classes],
-                          base_activation=torch.nn.ReLU,
+        self.fc_kan = KAN([self.features_size, 128, 128, n_classes],
+                          base_activation=torch.nn.PReLU,
                           )
 
-        self.apply(self.weight_init)
+        #self.apply(self.weight_init)
 # ------------------------------------------------------------------------------------------------------------------
 
     def _get_final_flattened_size(self):

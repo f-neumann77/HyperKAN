@@ -358,20 +358,27 @@ def train(net: nn.Module,
             scheduler.step()
 
         # Save the weights
-        if e % save_epoch == 0:
-            save_model(
-               net,
-               camel_to_snake(str(net.__class__.__name__)),
-               data_loader.dataset.name,
-               epoch=e,
-               metric=abs(metric),
-            )
+        #if e % save_epoch == 0:
+        #    save_model(
+        #       net,
+        #       camel_to_snake(str(net.__class__.__name__)),
+        #       data_loader.dataset.name,
+        #       epoch=e,
+        #       metric=abs(metric),
+         #   )
 
         # Early stopping
         early_stopping(train_metrics["avg_train_loss"], val_metrics['avg_val_loss'])
         if early_stopping.early_stop:
             print("Early stopping")
             break
+
+    save_model(
+               net,
+               camel_to_snake(str(net.__class__.__name__)),
+               data_loader.dataset.name,
+               epoch='best_val_acc',
+               metric=max(val_accuracies))
 
     history = dict()
     history["train_loss"] = train_loss
