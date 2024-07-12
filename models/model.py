@@ -140,6 +140,11 @@ class Model(ABC):
         return prediction
     # ------------------------------------------------------------------------------------------------------------------
 
+    def get_params_count(self):
+        model_parameters = filter(lambda p: p.requires_grad, self.model.parameters())
+        params = sum([np.prod(p.size()) for p in model_parameters])
+        return params
+
 
 def get_optimizer(net: nn.Module,
                   optimizer_type: OptimizerTypes,

@@ -11,7 +11,7 @@ from dataloaders.torch_dataloader import create_torch_loader
 from dataloaders.utils import get_dataset, sample_gt
 from models.model import train, save_train_mask, Model
 from models.utils import camel_to_snake
-from models.kan_layers import FastKANConvLayer, KANLinear
+from models.kan_layers import KANLinear, KAN, FastKANConv2DLayer, FastKANConv3DLayer
 
 
 def _weights_init(m):
@@ -37,7 +37,7 @@ class KAN_GPT(torch.nn.Module):
         super(KAN_GPT, self).__init__()
         self.grid_size = grid
         self.spline_order = k
-        self.bias_trainable = bias_trainable  # TODO
+        self.bias_trainable = bias_trainable
 
         self.layers = torch.nn.ModuleList()
         for in_features, out_features in zip(width, width[1:]):
@@ -135,10 +135,11 @@ class MLP_Block(nn.Module):
         super().__init__()
 
         self.net = nn.Sequential(
-            KAN_GPT(width=[dim, 512, 512, hidden_dim]),
+            KAN_GPT(width=[dim, hidden_dim]),
             NewGELU(),
-            # nn.GELU(),
-            KAN_GPT(width=[hidden_dim, 512, 512, dim])
+            nn.Dropout(dropout),
+            KAN_GPT(width=[hidden_dim,  dim]),
+            nn.Dropout(dropout)
         )
 
     def forward(self, x):
@@ -152,9 +153,9 @@ class Attention(nn.Module):
         self.heads = heads
         self.scale = dim ** -0.5  # 1/sqrt(dim)
 
-        self.to_qkv = KAN_GPT(width=[dim, 512, 512, 512, 512, 3 * dim])
+        self.to_qkv = KAN_GPT(width=[dim, 3 * dim])
 
-        self.nn1 = KAN_GPT(width=[dim, 512, 512, dim])
+        self.nn1 = KAN_GPT(width=[dim, dim])
 
         self.do1 = nn.Dropout(dropout)
 
@@ -213,26 +214,32 @@ class SSFTT_KAN_Net(nn.Module):
         self.L = num_tokens
         self.cT = dim
         self.conv3d_features = nn.Sequential(
-            nn.Conv3d(in_channels, out_channels=8, kernel_size=(3, 3, 3)),
+            FastKANConv3DLayer(in_channels,
+                               8,
+                               kernel_size=(3, 3, 3),
+                               base_activation=nn.PReLU,
+                               grid_size=2
+                               ),
             nn.BatchNorm3d(8),
             nn.ReLU(),
         )
 
         self.conv2d_features = nn.Sequential(
-            FastKANConvLayer(in_channels=8*(n_bands-2),
-                             out_channels=64,
-                             kernel_size=(3, 3),
-                             kan_type="RBF"  # , "Poly", "Chebyshev", "Fourier", "BSpline"
-                             ),
-            nn.BatchNorm2d(64),
+            FastKANConv2DLayer(8*(n_bands-2),
+                               32,
+                               kernel_size=(3, 3),
+                               base_activation=nn.PReLU,
+                               grid_size=2
+                            ),
+            nn.BatchNorm2d(32),
             nn.ReLU(),
         )
 
         # Tokenization
-        self.token_wA = nn.Parameter(torch.empty(1, self.L, 64),
+        self.token_wA = nn.Parameter(torch.empty(1, self.L, 32),
                                      requires_grad=True)  # Tokenization parameters
         torch.nn.init.xavier_normal_(self.token_wA)
-        self.token_wV = nn.Parameter(torch.empty(1, 64, self.cT),
+        self.token_wV = nn.Parameter(torch.empty(1, 32, self.cT),
                                      requires_grad=True)  # Tokenization parameters
         torch.nn.init.xavier_normal_(self.token_wV)
 

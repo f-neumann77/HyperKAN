@@ -17,3 +17,4 @@ from models.nm3dcnn_kan import NM3DCNN_KAN
 from models.nm3dcnn_full_kan import NM3DCNN_KAN as NM3DCNN_FULL_KAN
 from models.ssftt import SSFTT
 from models.ssftt_kan import SSFTT_KAN
+from models.ssftt_full_kan import SSFTT_KAN as SSFTT_FULL_KAN
