@@ -23,15 +23,16 @@ We have been using basic implementations of architectures from the following rep
 
 # Results
 
-*The training sample size for PaviaU and Indian Pines consisted of 20% samples per class, while for the other datasets 
+* `*` The training sample size for PaviaU and Indian Pines consisted of 20% samples per class, while for the other datasets 
 it was 10% per class.
 
-`Full` postfix mean that all model layers was replaced with KAN layers when possible. Otherwise, the replaced layer is specified.
+* `Full` postfix means that all model layers was replaced with KAN layers when possible. Otherwise, the replaced layer is specified.
+
+* `NxN` means the size of first and second hidden layers.
 
 Parameters count is shown for Salinas dataset 
 
-### Baseline 
-`first_hidden_layer X second_hidden_layer`
+### Baseline
 
 | Model        | PaviaU*   | PaviaC    | Salinas   | Indian Pines* | Houston13 | Houston18 | KSC        |
 |--------------|-----------|-----------|-----------|---------------|-----------|-----------|------------|
