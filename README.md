@@ -30,8 +30,6 @@ it was 10% per class.
 
 * `NxN` means the size of first and second hidden layers.
 
-Parameters count is shown for Salinas dataset 
-
 ### Baseline
 
 | Model        | PaviaU*   | PaviaC    | Salinas   | Indian Pines* | Houston13 | Houston18 | KSC        |
