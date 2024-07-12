@@ -2,10 +2,13 @@ import numpy as np
 from scipy.io import loadmat
 
 # Import neural networks models
-from models import MLP, MLP_KAN, Hu1DCNN, Hu1DCNN_KAN, \
-                   M1DCNN, M1DCNN_KAN, Luo3DCNN, Luo3DCNN_KAN, \
-                   He3DCNN, He3DCNN_KAN, NM3DCNN, NM3DCNN_KAN, \
-                   SSFTT, SSFTT_KAN
+from models import MLP, MLP_KAN, \
+                   Hu1DCNN, Hu1DCNN_KAN, Hu1DCNN_FULL_KAN, \
+                   M1DCNN, M1DCNN_KAN, M1DCNN_FULL_KAN, \
+                   Luo3DCNN, Luo3DCNN_KAN, Luo3DCNN_FULL_KAN, \
+                   He3DCNN, He3DCNN_KAN, He3DCNN_FULL_KAN, \
+                   NM3DCNN, NM3DCNN_KAN, NM3DCNN_FULL_KAN, \
+                   SSFTT, SSFTT_KAN, SSFTT_FULL_KAN
 
 # Import helper tools
 from models.utils import draw_fit_plots
@@ -18,11 +21,11 @@ from utils import draw_colored_mask
 # Import pca wrapper for hsi
 from dataloaders.utils import apply_pca
 
-DATASET = H18
-NN_MODEL = SSFTT_KAN
+DATASET = Salinas
+NN_MODEL = SSFTT
 
 optimizer_params = {
-    "learning_rate": 0.001,
+    "learning_rate": 0.0005,
     "weight_decay": 0
 }
 
@@ -38,12 +41,12 @@ augmentation_params = {
 }
 
 fit_params = {
-    "epochs": 25,
+    "epochs": 50,
     "train_sample_percentage": DATASET.get('train_sample_percentage'),
     "dataloader_mode": "fixed",
     "wandb_vis": False,
     "optimizer_params": optimizer_params,
-    "batch_size": 256,
+    "batch_size": 128,
     "scheduler_type": 'StepLR',
     "scheduler_params": scheduler_params
 }
@@ -56,7 +59,7 @@ def predict_(X,
 
     pred = cnn.predict(X=X,
                        y=y,
-                       batch_size=512)
+                       batch_size=32)
 
     pred = pred * (y > 0)
     mask_ = y * (y_train == 0)
@@ -78,6 +81,7 @@ mask = loadmat(mask_path)[mask_key]
 n_classes = len(np.unique(mask))
 
 scaler = HyperStandardScaler()
+
 hsi = scaler.fit_transform(hsi)
 
 hsi, pca = apply_pca(hsi, 30)
@@ -85,6 +89,9 @@ hsi, pca = apply_pca(hsi, 30)
 cnn = NN_MODEL(n_classes=n_classes,
                n_bands=hsi.shape[-1],
                device='cuda')
+
+print('Network trainable parameters', cnn.get_params_count())
+
 
 cnn.fit(X=hsi,  # or hsi
         y=mask,
@@ -95,3 +102,5 @@ draw_fit_plots(model=cnn)
 acc_bl, f1_bl = predict_(hsi, mask, cnn=cnn, y_train=cnn.train_mask)
 
 print(acc_bl, f1_bl)
+
+
