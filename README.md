@@ -31,7 +31,7 @@ it was 10% per class.
 Parameters count is shown for Salinas dataset 
 
 ### Baseline 
-first_hidden_layer X second_hidden_layer
+`first_hidden_layer X second_hidden_layer`
 
 | Model        | PaviaU*   | PaviaC    | Salinas   | Indian Pines* | Houston13 | Houston18 | KSC        |
 |--------------|-----------|-----------|-----------|---------------|-----------|-----------|------------|
