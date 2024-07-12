@@ -91,7 +91,7 @@ it was 10% per class.
 | NM3DCNN + KAN-Classification Layer | 	99.42    | 99.69     | 	97.11     | 91.61         | 96.92      | 95.63      | 92.01      |
 | NM3DCNN Full KAN                   | **99.52** | **99.75** | 	**98.01** | **95.39**     | **97.53**  | **95.84**  | **94.40**  |
 
-### Spectral-spatial features (window size 13x13), 30 principal components
+### Spectral-spatial Transformer (window size 13x13), 30 principal components
 [SSFTT by Sun et al](https://ieeexplore.ieee.org/document/9684381)
 
 | Model                          | PaviaU*   | PaviaC     | Salinas   | Indian Pines* | Houston13 | Houston18 | KSC       |
