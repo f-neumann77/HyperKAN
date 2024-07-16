@@ -1,3 +1,9 @@
+"""
+Based on
+https://github.com/IvanDrokin/torch-conv-kan
+
+"""
+
 import math
 
 import torch.nn.functional as F

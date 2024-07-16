@@ -11,6 +11,7 @@ def create_torch_loader(img: np.array,
                         gt: np.array,
                         hyperparams: Dict,
                         shuffle: Any = False):
+    hyperparams.setdefault('is_3d', True)
     dataset = TorchDataLoader(img, gt, **hyperparams)
     return udata.DataLoader(dataset, batch_size=hyperparams["batch_size"], shuffle=shuffle)
 # ----------------------------------------------------------------------------------------------------------------------
@@ -43,6 +44,7 @@ class TorchDataLoader(udata.Dataset):
         self.radiation_augmentation = hyperparams["radiation_augmentation"]
         self.mixture_augmentation = hyperparams["mixture_augmentation"]
         self.center_pixel = hyperparams["center_pixel"]
+        self.is_3d = hyperparams["is_3d"]
 
         mask = np.ones_like(gt)
         for label in self.ignored_labels:
@@ -124,7 +126,7 @@ class TorchDataLoader(udata.Dataset):
             label = label[0, 0]
 
         # Add a fourth dimension for 3D CNN
-        if self.patch_size > 1:
+        if self.patch_size > 1 and self.is_3d:
             # Make 4D data ((Batch x) Planes x Channels x Width x Height)
             data = data.unsqueeze(0)
         return data, label

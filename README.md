@@ -65,6 +65,16 @@ M1DCNN	     (params: 346 653)     | 94.79	    | 98.81	      | 91.95	    | 84.22	
 M1DCNN + KAN-Head (params: 5 997 102)| 	95.26    | 98.99       | 	92.83    | 	85.56        | 	96.75    |	**93.86** |	**91.12** |
 M1DCNN full KAN	(params: 1 034 371)  | **95.45** | 	**99.06**	 | **93.51** | 	**86.08**	   | **96.83** |	93.34 |	90.04|
 
+
+### Spatial-features (window size 3x3)
+
+|Model | PaviaU*    | PaviaC     | Salinas    | Indian Pines* | Houston13  | Houston18  | KSC        |
+|------|------------|------------|------------|---------------|------------|------------|------------|
+M2DCNN | 	97.93     | 	99.03     | 	93.10	    | 86.56         | 	93.78     | 	93.19     | 	84.72     |
+M2DCNN FULL KAN | 	**99.12** | 	**99.57** | 	**96.52** | 	**93.77**    | 	**95.97** | 	**94.26** | 	**86.19** |
+
+
+
 ### Spectral-spatial features (window size 3x3)
 [3DCNN by Luo et al](https://ieeexplore.ieee.org/document/8455251)
 

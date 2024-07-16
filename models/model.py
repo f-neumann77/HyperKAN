@@ -434,7 +434,8 @@ def test(net: nn.Module,
                 data = np.copy(data)
                 data = data.transpose(0, 3, 1, 2)
                 data = torch.from_numpy(data)
-                data = data.unsqueeze(1)
+                if hyperparams['is_3d']:
+                    data = data.unsqueeze(1)
 
             indices = [b[1:] for b in batch]
             data = data.to(device, dtype=torch.float)
