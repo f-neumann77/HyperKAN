@@ -49,7 +49,7 @@ class He3DCNN_KAN_Net(nn.Module):
 
         self.features_size = self._get_final_flattened_size()
 
-        self.kan_fc = KAN([self.features_size, 128, 128, n_classes],
+        self.kan_fc = KAN([self.features_size, n_classes],
                           base_activation=torch.nn.ReLU)
 
         #self.apply(self.weight_init)

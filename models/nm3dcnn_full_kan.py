@@ -14,13 +14,25 @@ class ParallelConvBlock(nn.Module):
                  inp,
                  out):
         super().__init__()
-        self.kaconv_1 = FastKANConv3DLayer(inp, 8, (1, 1, 1), padding=(0, 0, 0), base_activation=torch.nn.PReLU, grid_size=2)
+        self.kaconv_1 = FastKANConv3DLayer(inp, 8, (1, 1, 1),
+                                           padding=(0, 0, 0),
+                                           base_activation=torch.nn.PReLU,
+                                           grid_size=2)
         self.bn_conv1 = nn.BatchNorm3d(8)
-        self.kaconv_2 = FastKANConv3DLayer(8, 8, (3, 1, 1), padding=(1, 0, 0), base_activation=torch.nn.PReLU, grid_size=2)
+        self.kaconv_2 = FastKANConv3DLayer(8, 8, (3, 1, 1),
+                                           padding=(1, 0, 0),
+                                           base_activation=torch.nn.PReLU,
+                                           grid_size=2)
         self.bn_conv2 = nn.BatchNorm3d(8)
-        self.kaconv_3 = FastKANConv3DLayer(8, 8, (5, 1, 1), padding=(2, 0, 0), base_activation=torch.nn.PReLU, grid_size=2)
+        self.kaconv_3 = FastKANConv3DLayer(8, 8, (5, 1, 1),
+                                           padding=(2, 0, 0),
+                                           base_activation=torch.nn.PReLU,
+                                           grid_size=2)
         self.bn_conv3 = nn.BatchNorm3d(8)
-        self.kaconv_4 = FastKANConv3DLayer(8, out, (11, 1, 1), padding=(5, 0, 0), base_activation=torch.nn.PReLU, grid_size=2)
+        self.kaconv_4 = FastKANConv3DLayer(8, out, (11, 1, 1),
+                                           padding=(5, 0, 0),
+                                           base_activation=torch.nn.PReLU,
+                                           grid_size=2)
         self.bn_conv4 = nn.BatchNorm3d(out)
 
     def forward(self,
@@ -63,7 +75,10 @@ class NM3DCNN_KAN_Net(nn.Module):
         self.input_channels = input_channels
         self.patch_size = patch_size
 
-        self.kaconv1 = FastKANConv3DLayer(1, 8, (11, 3, 3), stride=(3, 1, 1), base_activation=torch.nn.PReLU, grid_size=2)
+        self.kaconv1 = FastKANConv3DLayer(1, 8, (11, 3, 3),
+                                          stride=(3, 1, 1),
+                                          base_activation=torch.nn.PReLU,
+                                          grid_size=2)
         self.bn_conv1 = nn.BatchNorm3d(8)
 
         self.pcb_1 = ParallelConvBlock(inp=8, out=8)
@@ -72,13 +87,16 @@ class NM3DCNN_KAN_Net(nn.Module):
         self.pcb_2 = ParallelConvBlock(inp=8, out=8)
         self.bn_pcb_2 = nn.BatchNorm3d(8)
 
-        self.kaconv4 = FastKANConv3DLayer(8, 8, (3, 2, 2), base_activation=torch.nn.PReLU, grid_size=2)
+        self.kaconv4 = FastKANConv3DLayer(8, 8, (3, 2, 2),
+                                          base_activation=torch.nn.PReLU,
+                                          grid_size=2)
         self.bn_conv4 = nn.BatchNorm3d(8)
 
         self.features_size = self._get_final_flattened_size()
 
-        self.kan_fc = KAN([self.features_size, 128, 128, n_classes],
-                          base_activation=torch.nn.PReLU)
+        self.kan_fc = KAN([self.features_size, n_classes],
+                          base_activation=torch.nn.PReLU,
+                          grid_size=2)
 
         #self.apply(self.weight_init)
     # ------------------------------------------------------------------------------------------------------------------

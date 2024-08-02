@@ -60,8 +60,9 @@ class Luo3DCNN_KAN_Net(nn.Module):
                     )
 
         self.features_size = self._get_final_flattened_size()
-        self.fc_kan = KAN([self.features_size, 128, 128, n_classes],
+        self.fc_kan = KAN([self.features_size, 512, n_classes],
                           base_activation=torch.nn.PReLU,
+                          grid_size=2
                           )
 
         #self.apply(self.weight_init)

@@ -21,14 +21,15 @@ class MLP_KAN_Net(nn.Module):
             init.kaiming_normal_(m.weight)
             init.zeros_(m.bias)
 
-    def __init__(self, input_channels, n_classes, dropout=False):
+    def __init__(self, input_channels, n_classes, dropout=False, grid_size=5):
         super(MLP_KAN_Net, self).__init__()
         self.use_dropout = dropout
         if dropout:
             self.dropout = nn.Dropout(p=0.15)
 
-        self.kan_fc = KAN([input_channels, 512, 512, n_classes],
-                          base_activation=torch.nn.ReLU,
+        self.kan_fc = KAN([input_channels, 128, 128, n_classes],
+                          base_activation=torch.nn.PReLU,
+                          grid_size=grid_size
                           )
 
     def forward(self, x):
@@ -41,7 +42,8 @@ class MLP_KAN(Model):
                  n_classes,
                  device,
                  n_bands,
-                 path_to_weights=None
+                 path_to_weights=None,
+                 grid_size=5
                  ):
         super(MLP_KAN, self).__init__()
         self.hyperparams: dict[str: Any] = dict()
@@ -57,7 +59,7 @@ class MLP_KAN(Model):
         weights = weights.to(device)
         self.hyperparams["weights"] = weights
 
-        self.model = MLP_KAN_Net(n_bands, n_classes, dropout=True)
+        self.model = MLP_KAN_Net(n_bands, n_classes, dropout=True, grid_size=grid_size)
 
         if path_to_weights:
             self.model.load_state_dict(torch.load(path_to_weights))

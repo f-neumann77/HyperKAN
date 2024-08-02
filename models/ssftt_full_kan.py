@@ -253,9 +253,12 @@ class SSFTT_KAN_Net(nn.Module):
 
         self.to_cls_token = nn.Identity()
 
-        self.nn1 = nn.Linear(dim, n_classes)
-        torch.nn.init.xavier_uniform_(self.nn1.weight)
-        torch.nn.init.normal_(self.nn1.bias, std=1e-6)
+        self.nn1 = KAN([dim, n_classes],
+                       base_activation=nn.PReLU,
+                       grid_size=2)
+        #self.nn1 = nn.Linear(dim, n_classes)
+        #torch.nn.init.xavier_uniform_(self.nn1.weight)
+        #torch.nn.init.normal_(self.nn1.bias, std=1e-6)
 
     def forward(self, x, mask=None):
         x = self.conv3d_features(x)

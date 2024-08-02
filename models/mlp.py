@@ -27,23 +27,37 @@ class MLP_Net(nn.Module):
         if dropout:
             self.dropout = nn.Dropout(p=0.15)
 
-        self.fc1 = nn.Linear(input_channels, 512)
-        self.fc2 = nn.Linear(512, 512)
-        self.fc3 = nn.Linear(512, 512)
-        self.fc4 = nn.Linear(512, n_classes)
+        self.bn1 = nn.BatchNorm1d(input_channels)
+        self.fc1 = nn.Linear(input_channels, 16)
+
+        self.bn2 = nn.BatchNorm1d(16)
+        self.fc2 = nn.Linear(16, 16)
+
+        #self.bn3 = nn.BatchNorm1d(16)
+        #self.fc3 = nn.Linear(16, 16)
+
+        self.bn4 = nn.BatchNorm1d(16)
+        self.fc4 = nn.Linear(16, n_classes)
 
         self.apply(self.weight_init)
 
     def forward(self, x):
+        # x = self.bn1(x)
         x = F.relu(self.fc1(x))
         if self.use_dropout:
             x = self.dropout(x)
+
+        # x = self.bn2(x)
         x = F.relu(self.fc2(x))
         if self.use_dropout:
             x = self.dropout(x)
-        x = F.relu(self.fc3(x))
-        if self.use_dropout:
-            x = self.dropout(x)
+
+        # x = self.bn3(x)
+        # x = F.relu(self.fc3(x))
+        # if self.use_dropout:
+        #    x = self.dropout(x)
+
+        x = self.bn4(x)
         x = self.fc4(x)
         return x
 

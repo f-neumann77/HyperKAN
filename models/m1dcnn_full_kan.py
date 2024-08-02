@@ -45,7 +45,8 @@ class M1DCNN_FULL_KAN_Net(nn.Module):
         self.pool = nn.MaxPool1d(pool_size)
         self.features_size = self._get_final_flattened_size()
         self.kan_fc = KAN([self.features_size, 128, 128, n_classes],
-                           base_activation=torch.nn.PReLU)
+                           base_activation=torch.nn.PReLU,
+                          grid_size=2)
     # ------------------------------------------------------------------------------------------------------------------
 
     def forward(self, x):

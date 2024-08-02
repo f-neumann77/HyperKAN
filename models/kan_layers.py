@@ -1092,6 +1092,7 @@ class KAN(torch.nn.Module):
 
         self.layers = torch.nn.ModuleList()
         for in_features, out_features in zip(layers_hidden, layers_hidden[1:]):
+            self.layers.append(torch.nn.BatchNorm1d(in_features))
             self.layers.append(
                 KANLinear(
                     in_features,
@@ -1106,7 +1107,7 @@ class KAN(torch.nn.Module):
                     grid_range=grid_range,
                 ))
 
-            self.layers.append(torch.nn.BatchNorm1d(out_features))
+            #self.layers.append(torch.nn.BatchNorm1d(out_features))
 
     def forward(self, x: torch.Tensor, update_grid=False):
         for layer in self.layers:
