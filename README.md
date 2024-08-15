@@ -1,4 +1,4 @@
-# HyperKAN: Kolmogorov-Arnold Networks make Hyperspectral Image Classificators Smarter
+# HyperKAN: Kolmogorov-Arnold Networks make Hyperspectral Image Classifiers Smarter
 The objective of this research is to replace classical neural network layers with Kolmogorov-Arnold layers for the 
 classification of hyperspectral data.
 
