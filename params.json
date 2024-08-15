@@ -1,0 +1,1573 @@
+{
+  "models": {
+    "MLP": {
+      "datasets": {
+        "PaviaU": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "PaviaC": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Salinas": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Indian Pines": {
+          "lr": 0.25,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 25,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "Houston13": {
+          "lr": 0.25,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 40,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "Houston18": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "KSC": {
+          "lr": 0.5,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 50,
+            "gamma": 0.5
+          },
+          "epochs": 1000
+        }
+      }
+    },
+    "MLP_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "PaviaC": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 75
+        },
+        "Salinas": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "Indian Pines": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "Houston13": {
+          "lr": 0.5,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 40,
+            "gamma": 0.5
+          },
+          "epochs": 300
+        },
+        "Houston18": {
+          "lr": 0.5,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 400
+        },
+        "KSC": {
+          "lr": 0.5,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 40,
+            "gamma": 0.5
+          },
+          "epochs": 400
+        }
+      }
+    },
+    "Hu1DCNN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": 0.4,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "PaviaC": {
+          "lr": 0.4,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Salinas": {
+          "lr": 0.4,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Indian Pines": {
+          "lr": 0.4,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 40,
+            "gamma": 0.5
+          },
+          "epochs": 400
+        },
+        "Houston13": {
+          "lr": 0.5,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 40,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "Houston18": {
+          "lr": 0.5,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 40,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "KSC": {
+          "lr": 0.5,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 40,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        }
+      }
+    },
+    "Hu1DCNN_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "PaviaC": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "Salinas": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "Indian Pines": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Houston13": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Houston18": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "KSC": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        }
+      }
+    },
+    "Hu1DCNN_FULL_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "M1DCNN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": 0.4,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "PaviaC": {
+          "lr": 0.4,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Salinas": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Indian Pines": {
+          "lr": 0.4,
+          "batch_size": 128,
+          "scheduler": {
+            "step_size": 40,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "Houston13": {
+          "lr": 0.5,
+          "batch_size": 128,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "Houston18": {
+          "lr": 0.2,
+          "batch_size": 128,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "KSC": {
+          "lr": 0.2,
+          "batch_size": 128,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        }
+      }
+    },
+    "M1DCNN_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": 0.2,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "PaviaC": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 5,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "Salinas": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 5,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "Indian Pines": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Houston13": {
+          "lr": 0.01,
+          "batch_size": 64,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "Houston18": {
+          "lr": 0.01,
+          "batch_size": 64,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        },
+        "KSC": {
+          "lr": 0.01,
+          "batch_size": 64,
+          "scheduler": {
+            "step_size": 20,
+            "gamma": 0.5
+          },
+          "epochs": 200
+        }
+      }
+    },
+    "M1DCNN_FULL_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "PaviaC": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "Salinas": {
+          "lr": 0.1,
+          "batch_size": 256,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 50
+        },
+        "Indian Pines": {
+          "lr": 0.2,
+          "batch_size": 128,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Houston13": {
+          "lr": 0.01,
+          "batch_size": 128,
+          "scheduler": {
+            "step_size": 10,
+            "gamma": 0.5
+          },
+          "epochs": 100
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "M2DCNN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "M2DCNN_FULL_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "Luo3DCNN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "Luo3DCNN_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "Luo3DCNN_FULL_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "He3DCNN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "He3DCNN_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "He3DCNN_FULL_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "NM3DCNN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "NM3DCNN_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "NM3DCNN_FULL_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "SSFTT": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "SSFTT_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    },
+    "SSFTT_FULL_KAN": {
+      "datasets": {
+        "PaviaU": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "PaviaC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Salinas": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Indian Pines": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston13": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "Houston18": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        },
+        "KSC": {
+          "lr": null,
+          "batch_size": null,
+          "scheduler": {
+            
+            "step_size": null,
+            "gamma": null
+          },
+          "epochs": null
+        }
+      }
+    }
+  }
+}
