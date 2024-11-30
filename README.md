@@ -4,7 +4,12 @@ classification of hyperspectral data.
 
 A novel approach to enhancing the efficacy of hyperspectral classifiers is proposed.
 
+**Paper** \
+[MDPI](https://www.mdpi.com/1424-8220/24/23/7683) \
+[Arxiv Preprint](https://arxiv.org/abs/2407.05278)
+
 Pretrained weights will be able soon...
+
 
 # Demo
 
@@ -218,8 +223,22 @@ it was 10% per class.
 | SSFTT         | 0.9985     | 0.9987     | 0.9985     | 0.9877        | 0.9856     | 0.9621     | 0.9543     | 0.9836     | 0.008271     |
 | SSFTT KAN     | **0.9990** | **0.9992** | **0.9996** | **0.9923**    | **0.9945** | **0.9712** | **0.9875** | **0.9919** |              |
 
-# Preprint
+## Citation
 
-The results shown above may differ from the published preprint. The latter will be updated soon.
-
-https://arxiv.org/abs/2407.05278
+If you find the research to be helpful, please consider citing it
+```
+bibtex
+@Article{
+    s24237683,
+    author={Firsov, Nikita and Myasnikov, Evgeny and Lobanov, Valeriy and Khabibullin, Roman and Kazanskiy, Nikolay and Khonina, Svetlana and Butt, Muhammad A. and Nikonorov, Artem},
+    title={HyperKAN: Kolmogorov–Arnold Networks Make Hyperspectral Image Classifiers Smarter},
+    journal={Sensors},
+    volume={24},
+    year={2024},
+    number={23},
+    article-number={7683},
+    url={https://www.mdpi.com/1424-8220/24/23/7683},
+    issn={1424-8220},
+    doi={10.3390/s24237683}
+}
+```
